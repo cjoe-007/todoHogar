@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div ng-app="comunicacionApp" ng-controller="comunicacionController"
+		class="container" ng-init="login()">
+
+		<h1>Regsitro de Cliente</h1>
+		<div class="row">
+
+			<br />
+			<h4>Nota: El botón guardar aparecerá cuando se llene todos los
+				campos correctamente.</h4>
+			<br />
+			<div class="col-sm-6" style="border: solid 1px">
+				<br />
+				<alert-message alert="alertMessage"></alert-message>
+				<br />
+				<div class="form-group">
+					<label>Nombre</label> <input type="text" min="0"
+						ng-blur="showBtnSave()" ng-model="name" class="form-control"
+						style="width: 80%" value="{{name}}" />
+				</div>
+				<div class="form-group">
+					<label>Email</label> <input type="text" min="0"
+						ng-blur="showBtnSave()" ng-model="email" class="form-control"
+						style="width: 80%" value="{{email}}" />
+				</div>
+				<div class="form-group">
+					<label>Tel&#233;fono</label> <input type="text" min="0"
+						ng-blur="showBtnSave()" ng-model="phone" class="form-control"
+						style="width: 80%" value="{{phone}}" />
+				</div>
+				<br /> <br /> <label>Quiero concursar en el grupo</label><br>
+				<br> <label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
+					type="radio" ng-model="groups" value="sk"> SK
+				</label><br /> <label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
+					type="radio" ng-model="groups" value="th"> TH
+				</label> <br>
+				<br />
+
+				<button ng-show="viewBtnSave" ng-click="saveClient()" type="button">Registrar
+					Cliente</button>
+				<br />  <a href="viewClient.html">Listar
+					Clientes</a> <br /> <a href="index.html">Inicio</a>
+			</div>
+		</div>
+		<br />
+
+	</div>
+	<script>
+		var app = angular.module("comunicacionApp", []);
+		app.controller("comunicacionController", function($scope, $http) {
+			$scope.name;
+			$scope.email;
+			$scope.phono;
+			$scope.groups;
+			$scope.viewBtnSave = false;
+
+			$scope.cleanData = function() {
+				$scope.name = "";
+				$scope.email = "";
+				$scope.phone = "";
+				$scope.groups = "sk";
+				$scope.viewBtnSave = false;
+			}
+			
+			$scope.login = function() {
+				let url = "http://localhost:9000/listClients";
+				$http({
+					  method: 'GET',
+					  url: url
+					}).then(function successCallback(response) {
+						$scope.cleanData();
+					  }, function errorCallback(response) {
+						  if (response.status == -1) {
+							  window.location.href = "../../client_XYZ_CH/WebContent/index.html";
+						  }
+					  });
+			}
+
+			$scope.saveClient = function() {
+				let url = "http://localhost:9000/saveClient";
+				let ob = new Object();
+				ob.name = $scope.name;
+				ob.email = $scope.email;
+				ob.phone = $scope.phone;
+				ob.groups = $scope.groups;
+				
+				$http({
+					  method: 'POST',
+					  url: url,
+					  data: ob,
+					  transformResponse: [
+					        function (data) { 
+					            return data; 
+					        }
+					    ]
+					}).then(function successCallback(response) {
+						alert(response.data);
+						$scope.cleanData();
+					  }, function errorCallback(response) {
+						  alert(response.data);
+					  });
+			}
+
+			$scope.showBtnSave = function() {
+				if ($scope.name.length != 0 && $scope.email.length != 0
+						&& $scope.phone.length != 0) {
+					$scope.viewBtnSave = true;
+				} else {
+					$scope.viewBtnSave = false;
+				}
+			}
+
+		});
+	</script>
+</body>
+</html>

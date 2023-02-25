@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div ng-app="comunicacionApp" ng-controller="comunicacionController"
+		class="container">
+		<h1>Clientes Registrados</h1>
+
+
+		<br />
+		<div>
+			<table border="1" class="table table-striped table-bordered"
+				ng-init="listClients()">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Email</th>
+						<th>Tel&#233;fono</th>
+						<th>Beneficio</th>
+						<th>Grupo</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="r in clients">
+						<td>{{r.name}}</td>
+						<td>{{r.email}}</td>
+						<td>{{r.phone}}</td>
+						<td>{{r.benefits}}</td>
+						<td>{{r.groups}}</td>
+						<td><a href="#" ng-click="deleteClient(r.id)">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br /> <a href="newClient.html">Nuevo Cliente</a> <br /> <a
+			href="index.html">Inicio</a>
+	</div>
+
+	<script>
+		var app = angular.module("comunicacionApp", []);
+		app.controller("comunicacionController", function($scope, $http) {
+			$scope.clients = [];
+
+			$scope.listClients = function() {
+				let url = "http://localhost:9000/listClients";
+				$http.get(url).then(function(res) {
+					$scope.clients = res.data;
+				});
+			}
+			
+			$scope.deleteClient = function(id) {
+				let url = "http://localhost:9000/deleteClient";
+				$http({
+					method : "DELETE",
+					url : url + "/" + id
+				}).then(function(res) {
+					$scope.listClients();
+				});
+			}
+		});
+	</script>
+
+
+</body>
+</html>

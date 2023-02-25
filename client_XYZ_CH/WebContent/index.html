@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div ng-app="comunicacionApp" ng-controller="comunicacionController"
+		class="container">
+
+		<h1>Login</h1>
+			<div class="col-sm-6" style="border: solid 1px">
+				<br>
+				<div class="form-group">
+					<label>Usuario</label> <input type="text" min="0" ng-model="userName" class="form-control" style="width: 80%" value="{{userName}}">
+				</div>
+				<div class="form-group">
+					Clave  <input type="text" min="0" ng-model="pass" class="form-control" style="width: 80%" value="{{pass}}">
+				</div>
+				
+				 <br>
+				<br>
+
+				<button ng-click="login()" type="button">Ingresar</button>
+				<br><br />
+			</div>
+		
+		<br />
+
+	</div>
+	<script>
+		var app = angular.module("comunicacionApp", []);
+		app.controller("comunicacionController", function($scope, $http) {
+			$scope.userName;
+			$scope.pass;
+
+			$scope.cleanData = function() {
+				$scope.userName = "";
+				$scope.pass = "";
+			}
+			
+			$scope.login = function() {
+				let url = "http://localhost:9000/user";
+				let ob = new Object();
+				ob.userName = $scope.userName;
+				ob.pass = $scope.pass;
+				
+				$http({
+					  method: 'POST',
+					  url: url,
+					  data: ob,
+					  transformResponse: [
+					        function (data) { 
+					            return data; 
+					        }
+					    ]
+					}).then(function successCallback(response) {
+						window.location.href = "../../client_XYZ_CH/WebContent/newClient.html";
+					  }, function errorCallback(response) {
+						  alert("Error: usuario o clave incorrecto."+response.status);
+					  });
+			}
+		});
+	</script>
+</body>
+</html>

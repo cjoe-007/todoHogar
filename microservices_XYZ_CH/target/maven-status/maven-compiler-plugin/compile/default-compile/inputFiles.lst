@@ -1,0 +1,16 @@
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\controller\DataController.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\dto\ReadBeneficiosDto.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\exceptions\GestionExcepciones.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\dao\AccesoDaoImpl.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\model\Client.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\dao\ClientJpaSpring.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\dao\AccesoDao.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\dto\ReadJsonBeneficioDto.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\dto\ReadXMLDto.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\service\JWTAuthorizationFilter.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\inicio\Application.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\service\AccesoService.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\controller\UserController.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\model\User.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\dto\ReadJsonDto.java
+C:\Users\Jose\Documents\GitHub\todoHogar\microservices_XYZ_CH\src\main\java\com\market\service\AccesoServiceImpl.java

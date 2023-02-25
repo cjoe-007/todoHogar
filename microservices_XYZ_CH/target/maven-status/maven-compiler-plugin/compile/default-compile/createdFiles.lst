@@ -1,0 +1,17 @@
+com\market\dao\ClientJpaSpring.class
+com\market\dao\AccesoDaoImpl.class
+com\market\controller\UserController.class
+inicio\Application.class
+com\market\dto\ReadBeneficiosDto.class
+com\market\dto\ReadJsonDto.class
+com\market\dto\ReadJsonBeneficioDto.class
+com\market\service\AccesoService.class
+com\market\service\JWTAuthorizationFilter.class
+com\market\dto\ReadXMLDto.class
+inicio\Application$WebSecurityConfig.class
+com\market\dao\AccesoDao.class
+com\market\model\Client.class
+com\market\exceptions\GestionExcepciones.class
+com\market\model\User.class
+com\market\controller\DataController.class
+com\market\service\AccesoServiceImpl.class
