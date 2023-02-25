@@ -5,6 +5,8 @@
 
 En esta primera versión se tiene la creación de un usuario. Consta de 2 parte Back-end (microservices_XYZ_CH) y Front-end (client_XYZ_CH)
 
+Nota: en la carpeta target del proyecto (microservices_XYZ_CH) se encuentra generado el jar, con esto podemos avanzar al paso 5 de este tutorial.
+
 1. micoroservices_XYZ_CH= es la parte back end desarrollado con Java 8, IDE Eclipse, jpa, base de datos en memoria hdbsql, Spring Boot, Servidor tomcat.
 
 Para ejecutar bajar el proyecto y tener libre el puerto 9000. 
@@ -19,7 +21,7 @@ Empaquetado y ejecución del microservicio;
 
  
 
-3. Se ejecutará construirá  el jar.
+3. Se ejecutará y construirá  el jar.
 
 4. En la carpeta target se creará el jar  micoroservices_XYZ_CH.jar.
  
@@ -30,7 +32,7 @@ java -jar microservices_XYZ_CH-0.0.1-SNAPSHOT.jar
 
  
 
-6. Una vez que se encuentre arriba el microservicio nos al proyecto client_XYZ_CH
+6. Una vez que se encuentre arriba el microservicio nos vamos al proyecto client_XYZ_CH
  
 
 7. En la carpeta “client_XYZ_CH\WebContent”, abrimos el archivo index.html
