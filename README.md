@@ -1,6 +1,6 @@
 # empresa XYZ_CH
 
-#Revisar CreateUser.docx se encuentra con imágenes.
+# Revisar CreateUser.docx se encuentra con imágenes.
 
 
 En esta primera versión se tiene la creación de un usuario. Consta de 2 parte Back-end (microservices_XYZ_CH) y Front-end (client_XYZ_CH)
